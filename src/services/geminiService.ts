@@ -266,7 +266,7 @@ export async function extractWords(
   onProgress: (current: number, total: number) => void
 ): Promise<WordPair[]> {
   const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({ model: 'gemini-flash-lite-latest' });
+  const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash-lite' });
 
   const allPairs: WordPair[] = [];
   const prompt = PROMPTS[language];
@@ -353,7 +353,7 @@ export async function extractWordsFromDocument(
   documentText: string,
 ): Promise<WordPairDocument[]> {
   const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({ model: 'gemini-flash-lite-latest' });
+  const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash-lite' });
   const prompt = PROMPTS.document;
 
   // Split long documents into chunks to stay within reasonable context limits.
